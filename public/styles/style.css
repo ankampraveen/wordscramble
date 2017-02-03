@@ -1,61 +1,60 @@
-.item{
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 8;
-  -moz-border-radius: 8;
-  border-radius: 6px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  text-align: center;
-  padding: 25px 10px 25px 10px;
-  text-decoration: none;
-  -webkit-transition:all 3000ms;
-  transition:all 3000ms;
+.scrambledWord {
+	background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+	background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+	background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+	background-image: -o-linear-gradient(top, #3498db, #2980b9);
+	background-image: linear-gradient(to bottom, #3498db, #2980b9);
 }
 
-.rightword {
-  background-image: -webkit-linear-gradient(top, #2cd14d, #59d467);
-  background-image: -moz-linear-gradient(top, #2cd14d, #59d467);
-  background-image: -ms-linear-gradient(top, #2cd14d, #59d467);
-  background-image: -o-linear-gradient(top, #2cd14d, #59d467);
-  background-image: linear-gradient(to bottom, #2cd14d, #59d467);
+.rightWord, .wrongWord, .scrambledWord {
+	background: #3498db;
+	-webkit-border-radius: 8;
+	-moz-border-radius: 8;
+	border-radius: 6px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 20px;
+	text-align: center;
+	padding: 25px 10px 25px 10px;
+	text-decoration: none;
+	
+}
+.rightWord {
+	background-image: -webkit-linear-gradient(top, #2cd14d, #59d467);
+	background-image: -moz-linear-gradient(top, #2cd14d, #59d467);
+	background-image: -ms-linear-gradient(top, #2cd14d, #59d467);
+	background-image: -o-linear-gradient(top, #2cd14d, #59d467);
+	background-image: linear-gradient(to bottom, #2cd14d, #59d467);
 }
 
-.wrongword {
-  background-image: -webkit-linear-gradient(top, #e61515, #e07070);
-  background-image: -moz-linear-gradient(top, #e61515, #e07070);
-  background-image: -ms-linear-gradient(top, #e61515, #e07070);
-  background-image: -o-linear-gradient(top, #e61515, #e07070);
-  background-image: linear-gradient(to bottom, #e61515, #e07070);
+.wrongWord {
+	background-image: -webkit-linear-gradient(top, #e61515, #e07070);
+	background-image: -moz-linear-gradient(top, #e61515, #e07070);
+	background-image: -ms-linear-gradient(top, #e61515, #e07070);
+	background-image: -o-linear-gradient(top, #e61515, #e07070);
+	background-image: linear-gradient(to bottom, #e61515, #e07070);
 }
-
 
 input {
-  width: 250px;
-  background: #dfdfdf;
-  color: #444;
-  padding: 5px;
-  border: 0;
-  outline: none;
-  display: block;
-  border-bottom: 2px solid #57B8D6;
+	width: 250px;
+	background: #dfdfdf;
+	color: #444;
+	padding: 5px;
+	border: 0;
+	outline: none;
+	display: block;
+	border-bottom: 2px solid #57B8D6;
 }
-input:hover
-{
+input:hover {
 	border-bottom: 2px solid #888;
 }
 
 input:focus {
-    outline:none;
+	outline: none;
 }
 .scrambler {
 	margin-top: 10%;
-    width: 60%;
-    border: 3px solid #73AD21;
-    padding: 10px;
+	width: 60%;
+	border: 3px solid #73AD21;
+	padding: 10px;
 }

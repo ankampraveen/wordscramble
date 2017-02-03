@@ -31,8 +31,8 @@
 				<div class="progress-bar progress-bar-striped active" role="progressbar"  style="width:100%"></div>
 			</div>
 			<div class="row" ng-show="isLoaded">
-				<div class="col-md-1 col-md-offset-1 item" ng-repeat="item in arr track by item.id" ng-class="wordTiles">
-					{{item.id}}
+				<div class="col-md-1 col-md-offset-1" ng-repeat="char in wordArray track by char.id" ng-class="wordTiles">
+					{{char.id}}
 				</div>
 			</div>
 			<br /><br /><br /><br />

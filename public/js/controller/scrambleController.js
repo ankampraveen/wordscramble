@@ -1,10 +1,11 @@
 var app = angular.module('wordScramble', ['ngAnimate','ngCookies']);
 
 app.controller('wordScrambleCtrl', function($scope, $http, $timeout, $window, $cookies) {
-	$scope.arr = [];
+	$scope.wordArray = [];
 	var arr = [];
-	var word = "";
+	var originalWord = "";
 	$scope.isLoaded = false;
+	$scope.wordTiles = "scrambledWord";
 	$scope.result = "";
 	$scope.message = "";
 	if($cookies.get('score')) {
@@ -19,8 +20,8 @@ app.controller('wordScrambleCtrl', function($scope, $http, $timeout, $window, $c
 		
 		var testword = response.word;
 		console.log("unscrambled:" + testword);
-		word = testword.toLowerCase();
-		var wordArray = testword.toLowerCase().split("");
+		originalWord = testword.toLowerCase();
+		var wordArray = originalWord.split("");
 		var tempArrForDuplicates = wordArray;
 		var duplicates = false;
 
@@ -46,15 +47,15 @@ app.controller('wordScrambleCtrl', function($scope, $http, $timeout, $window, $c
 		}
 
 		// store the scrambled word in an array
-		scrambledWord(wordArray)
+		updateWordTiles(wordArray)
 
-		arr = $scope.arr;
+		arr = $scope.wordArray;
 	});
 	
-	function scrambledWord(wordArray) {
-		$scope.arr = [];
+	function updateWordTiles(wordArray) {
+		$scope.wordArray = [];
 		for (var i = 0; i < wordArray.length; i++) {
-			$scope.arr.push({
+			$scope.wordArray.push({
 				val : i,
 				id : '' + wordArray[i]				
 			});
@@ -66,22 +67,19 @@ app.controller('wordScrambleCtrl', function($scope, $http, $timeout, $window, $c
 	}
 	
 	$scope.showAnswer = function() {
-		scrambledWord(word.split(""));
+		updateWordTiles(originalWord.split(""));
 	}
 	
-	currentKeyPress = 0;
-	charCount = 0;
-
 	// function to verify user input
 	$scope.swap = function($event) {
-		if ($scope.result.length == word.length) {
-			if ($scope.result == word) {
+		if ($scope.result.length == originalWord.length) {
+			if ($scope.result == originalWord) {
 				$scope.score++;
 				$cookies.put('score',$scope.score);
 				$scope.message = "Congrats!!!";
 				$scope.wordTiles = "rightWord";
 				// Swap the tiles with correct word
-				scrambledWord($scope.result.split(""));
+				updateWordTiles($scope.result.split(""));
 			} else {
 				$scope.wordTiles = "wrongWord";
 				$scope.message = "Try again!!!";
