@@ -6,8 +6,6 @@ app.controller('wordScrambleCtrl', function($scope, $http, $timeout, $window, $c
 	var word = "";
 	$scope.result = "";
 	$scope.message = "";
-	$cookies.put('score','5');
-	console.log("score"+$cookies.get('score'))
 	if($cookies.get('score')) {
 		$scope.score = $cookies.get('score');
 	}
@@ -51,7 +49,6 @@ app.controller('wordScrambleCtrl', function($scope, $http, $timeout, $window, $c
 	});
 	
 	function scrambledWord(wordArray) {
-		console.log(wordArray)
 		$scope.arr = [];
 		for (var i = 0; i < wordArray.length; i++) {
 			$scope.arr.push({
@@ -65,15 +62,21 @@ app.controller('wordScrambleCtrl', function($scope, $http, $timeout, $window, $c
 		$window.location.reload();
 	}
 	
+	$scope.showAnswer = function() {
+		scrambledWord(word.split(""));
+	}
+	
 	currentKeyPress = 0;
 	charCount = 0;
 
+	// function to verify user input
 	$scope.swap = function($event) {
 		if ($scope.result.length == word.length) {
 			if ($scope.result == word) {
 				$scope.score++;
 				$cookies.put('score',$scope.score);
 				$scope.message = "Congrats!!!";
+				// Swap the tiles with correct word
 				scrambledWord($scope.result.split(""));
 			} else {
 				$scope.message = "Try again!!!";
