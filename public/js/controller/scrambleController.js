@@ -4,6 +4,7 @@ app.controller('wordScrambleCtrl', function($scope, $http, $timeout, $window, $c
 	$scope.arr = [];
 	var arr = [];
 	var word = "";
+	$scope.isLoaded = false;
 	$scope.result = "";
 	$scope.message = "";
 	if($cookies.get('score')) {
@@ -14,6 +15,8 @@ app.controller('wordScrambleCtrl', function($scope, $http, $timeout, $window, $c
 	}
 	$http.get("http://api.wordnik.com:80/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=5&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
 	.success(function(response) {
+		$scope.isLoaded = true;
+		
 		var testword = response.word;
 		console.log("unscrambled:" + testword);
 		word = testword.toLowerCase();
@@ -76,9 +79,11 @@ app.controller('wordScrambleCtrl', function($scope, $http, $timeout, $window, $c
 				$scope.score++;
 				$cookies.put('score',$scope.score);
 				$scope.message = "Congrats!!!";
+				$scope.wordTiles = "rightWord";
 				// Swap the tiles with correct word
 				scrambledWord($scope.result.split(""));
 			} else {
+				$scope.wordTiles = "wrongWord";
 				$scope.message = "Try again!!!";
 			}
 		}

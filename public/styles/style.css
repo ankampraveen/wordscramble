@@ -18,6 +18,22 @@
   transition:all 3000ms;
 }
 
+.rightword {
+  background-image: -webkit-linear-gradient(top, #2cd14d, #59d467);
+  background-image: -moz-linear-gradient(top, #2cd14d, #59d467);
+  background-image: -ms-linear-gradient(top, #2cd14d, #59d467);
+  background-image: -o-linear-gradient(top, #2cd14d, #59d467);
+  background-image: linear-gradient(to bottom, #2cd14d, #59d467);
+}
+
+.wrongword {
+  background-image: -webkit-linear-gradient(top, #e61515, #e07070);
+  background-image: -moz-linear-gradient(top, #e61515, #e07070);
+  background-image: -ms-linear-gradient(top, #e61515, #e07070);
+  background-image: -o-linear-gradient(top, #e61515, #e07070);
+  background-image: linear-gradient(to bottom, #e61515, #e07070);
+}
+
 
 input {
   width: 250px;

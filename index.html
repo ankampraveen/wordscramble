@@ -27,8 +27,11 @@
 				</div>
 			</div>
 			<br />
-			<div class="row">
-				<div class="col-md-1 col-md-offset-1 item" ng-repeat="item in arr track by item.id" >
+			<div class="progress" ng-hide="isLoaded">
+				<div class="progress-bar progress-bar-striped active" role="progressbar"  style="width:100%"></div>
+			</div>
+			<div class="row" ng-show="isLoaded">
+				<div class="col-md-1 col-md-offset-1 item" ng-repeat="item in arr track by item.id" ng-class="wordTiles">
 					{{item.id}}
 				</div>
 			</div>
